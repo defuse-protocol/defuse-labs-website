@@ -30,12 +30,13 @@ function Home() {
         <Container className="relative pb-20 pt-40 sm:pb-72 sm:pt-80">
           <div className="relative mx-auto max-w-4xl">
             <div className="relative flex flex-col items-center justify-center">
-              <h1 className="text-center text-6xl font-bold tracking-tight text-white">
+              <h1 className="text-center text-5xl font-bold tracking-tight text-white md:text-6xl">
                 Powering the future of AI transactions
               </h1>
               <div className="mt-5 sm:mt-6">
                 <p className="text-balance text-center text-xl font-light tracking-tight text-[#CCCCCC]">
-                  Defuse Labs develops <strong>NEAR Intents</strong> to enable
+                  Defuse Labs develops{" "}
+                  <span className="font-bold">NEAR Intents</span> to enable
                   seamless cross-chain interactions in an automated world —
                   connecting AI, services, and financial applications.
                 </p>
@@ -238,15 +239,15 @@ function Home() {
               <div className="grid grid-cols-1 gap-6 p-8 md:grid-cols-2 md:p-12">
                 <div className="flex flex-col items-start justify-center gap-6">
                   <GradientButton>Near Intents</GradientButton>
-                  <h1 className="text-3xl font-bold">
+                  <h1 className="text-2xl font-bold tracking-tighter md:text-3xl">
                     A new type of transaction
                   </h1>
-                  <p className="text-base text-gray-400">
+                  <p className="text-base text-white/80">
                     Allowing information, requests, assets and actions to
                     exchanges between AI agents, services and end users.
                   </p>
 
-                  <div className="grid grid-cols-2 gap-x-2">
+                  <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
                     <a
                       href="http://near-intents.org"
                       className={blackButton}
@@ -281,7 +282,7 @@ function Home() {
 
       <section id="careers">
         <Container className="flex flex-col items-center justify-center">
-          <div className="grid grid-cols-1 gap-6 px-8 py-8 md:grid-cols-3 md:px-12 md:py-16">
+          <div className="grid grid-cols-1 gap-6 px-8 py-16 md:grid-cols-3 md:px-12 md:py-24">
             <div className="flex w-full flex-col items-start justify-center gap-6 pr-8">
               <div className="w-full">
                 <GradientButton>Careers</GradientButton>
@@ -294,7 +295,7 @@ function Home() {
               </p>
             </div>
             <div className="col-span-2 grid grid-cols-1 gap-4 overflow-hidden rounded-2xl">
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-4">
                 <div className="bg-white">
                   <PositionCard
                     team="Team 1"
@@ -357,8 +358,8 @@ const PositionCard = ({ team, title, link }: PositionProps) => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <span className="px-6 text-sm text-gray-800">{team}</span>
-        <span className="px-6 text-xl font-bold">{title}</span>
+        <span className="px-6 text-xs text-gray-800 md:text-sm">{team}</span>
+        <span className="px-6 text-base font-bold md:text-xl">{title}</span>
       </div>
     </a>
   )

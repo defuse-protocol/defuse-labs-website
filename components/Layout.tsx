@@ -190,7 +190,7 @@ const Layout = ({
                 ))}
               </div>
             </div>
-            <div className="flex items-center justify-between py-6">
+            <div className="flex flex-col items-center justify-between gap-6 py-6 md:flex-row">
               <Logo />
               <div className="text-sm font-thin text-white">
                 &copy; {new Date().getFullYear()} Defuse Labs. All rights
