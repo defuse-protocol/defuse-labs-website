@@ -109,7 +109,7 @@ const Layout = ({
 
           <button
             onClick={() => setMenuOpen(true)}
-            className="rounded-lg p-3 text-gray-800 transition-colors hover:bg-gray-100 hover:text-gray-800 lg:hidden"
+            className="rounded-lg p-3 text-white transition-colors lg:hidden"
           >
             <span className="sr-only">Open menu</span>
             <HiMiniBars3 className="h-5 w-5" />
@@ -118,10 +118,10 @@ const Layout = ({
           <Dialog
             open={menuOpen}
             onClose={() => setMenuOpen(false)}
-            className="relative z-50"
+            className="relative z-50 transition-all duration-300"
           >
-            <DialogPanel className="fixed inset-0 flex w-screen flex-col bg-white">
-              <div className="flex items-center justify-between border-b px-4 py-3 sm:px-6">
+            <DialogPanel className="fixed inset-0 flex w-screen flex-col bg-[#080808]">
+              <div className="flex items-center justify-between border-b px-4 py-6 sm:px-6">
                 <Link href="/">
                   <span className="sr-only">Defuse Labs</span>
                   <Logo />
@@ -129,10 +129,10 @@ const Layout = ({
 
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg p-3 text-gray-800 transition-colors hover:bg-gray-100 hover:text-gray-800"
+                  className="rounded-lg p-3 text-white transition-colors"
                 >
-                  <span className="sr-only">Open menu</span>
-                  <HiMiniXMark className="h-5 w-5" />
+                  <span className="sr-only">Close menu</span>
+                  <HiMiniXMark className="h-6 w-6" />
                 </button>
               </div>
 
@@ -141,7 +141,7 @@ const Layout = ({
                   <Link
                     key={name}
                     href={href}
-                    className="text-xl font-medium leading-none text-white"
+                    className="text-2xl font-medium leading-none text-white"
                   >
                     {name}
                   </Link>

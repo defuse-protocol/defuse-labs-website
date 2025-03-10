@@ -27,7 +27,7 @@ function Home() {
   return (
     <>
       <section className="relative min-h-[75vh] overflow-hidden">
-        <Container className="relative pb-20 pt-20 sm:pb-72 sm:pt-80">
+        <Container className="relative pb-20 pt-40 sm:pb-72 sm:pt-80">
           <div className="relative mx-auto max-w-4xl">
             <div className="relative flex flex-col items-center justify-center">
               <h1 className="text-center text-6xl font-bold tracking-tight text-white">
