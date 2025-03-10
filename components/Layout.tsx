@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Dialog, DialogPanel } from "@headlessui/react"
 import { HiMiniBars3, HiMiniXMark } from "react-icons/hi2"
 import { useRouter } from "next/router"
+import ActionButton from "./action-button"
 
 const navigation = {
   main: [
@@ -88,22 +89,21 @@ const Layout = ({
           </Link>
 
           <nav className="hidden flex-row items-center gap-x-2 lg:flex">
-            {navigation.main.map(({ name, href, button }) => (
-              <Link
-                key={name}
-                href={href}
-                className={clsx(
-                  "rounded-md px-6 py-4 leading-none text-white transition-all duration-300",
-                  {
-                    "border border-white/20 font-medium hover:-translate-y-[5px]":
-                      button,
-                    "font-normal": !button,
-                  }
-                )}
-              >
-                {name}
-              </Link>
-            ))}
+            {navigation.main.map(({ name, href, button }) =>
+              button ? (
+                <ActionButton key={name} href={href} variant="transparent">
+                  {name}
+                </ActionButton>
+              ) : (
+                <Link
+                  key={name}
+                  href={href}
+                  className="rounded-md px-6 py-4 leading-none text-white transition-all duration-300"
+                >
+                  {name}
+                </Link>
+              )
+            )}
           </nav>
 
           <button

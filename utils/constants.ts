@@ -6,3 +6,6 @@ export const blackButton =
 
 export const whiteButton =
   "rounded-md border border-white/20 bg-[#080808] px-7 py-5 text-center text-base font-bold leading-none text-white transition-all hover:-translate-y-[5px]"
+
+export const transparentButton =
+  "rounded-md border border-white/20 bg-transparent px-7 py-5 text-center text-base font-bold leading-none text-white transition-all hover:-translate-y-[5px]"

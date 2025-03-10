@@ -5,6 +5,7 @@ import { useState } from "react"
 import { blackButton, gradient, whiteButton } from "@/utils/constants"
 import { GradientButton } from "@/components/gradient-button"
 import { getOpenPositions } from "@/utils/cms"
+import ActionButton from "@/components/action-button"
 
 function Home({ openPositions }: { openPositions: any[] }) {
   const [problemSectionOpen, setProblemSectionOpen] = useState(true)
@@ -36,12 +37,10 @@ function Home({ openPositions }: { openPositions: any[] }) {
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-x-2 sm:mt-12">
-                <a href="#about" className={blackButton}>
+                <ActionButton variant="white" href="#about">
                   Get involved
-                </a>
-                <a href="#work" className={whiteButton}>
-                  Work with us
-                </a>
+                </ActionButton>
+                <ActionButton href="#careers">Work with us</ActionButton>
               </div>
             </div>
           </div>
@@ -242,20 +241,15 @@ function Home({ openPositions }: { openPositions: any[] }) {
                   </p>
 
                   <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
-                    <a
+                    <ActionButton
+                      variant="white"
                       href="http://near-intents.org"
-                      className={blackButton}
-                      target="_blank"
                     >
-                      Go to NEAR Intents
-                    </a>
-                    <a
-                      href="http://near-intents.org"
-                      className={whiteButton}
-                      target="_blank"
-                    >
+                      Go toa NEAR Intents
+                    </ActionButton>
+                    <ActionButton href="http://near-intents.org">
                       Find out more
-                    </a>
+                    </ActionButton>
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
