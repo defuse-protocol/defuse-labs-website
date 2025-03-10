@@ -42,12 +42,7 @@ const navigation = {
     {
       name: "X",
       href: "https://www.x.com/defuselabs",
-      icon: FaLinkedin,
-    },
-    {
-      name: "Email",
-      href: "mailto:info@nearone.org",
-      icon: FaEnvelope,
+      icon: <Image src="/assets/x.svg" alt="X" width={24} height={24} />,
     },
   ],
 }
@@ -181,15 +176,16 @@ const Layout = ({
                 ))}
               </div>
               <div className="flex items-center gap-x-2">
-                {navigation.social.map(({ name, icon: Icon }) => (
+                {navigation.social.map(({ name, href, icon }) => (
                   <a
                     key={name}
+                    href={href}
                     className="rounded-lg p-2.5 text-white transition-colors hover:text-gray-300"
                     target="_blank"
                     rel="noreferrer noopener"
                   >
                     <span className="sr-only">{name}</span>
-                    <Icon className="h-4 w-4" />
+                    {icon}
                   </a>
                 ))}
               </div>

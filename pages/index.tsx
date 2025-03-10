@@ -9,7 +9,7 @@ import {
 } from "react-icons/go"
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
 import { useState } from "react"
-import { gradient } from "@/utils/contants"
+import { blackButton, gradient, whiteButton } from "@/utils/constants"
 import { GradientButton } from "@/components/gradient-button"
 
 function Home() {
@@ -41,16 +41,10 @@ function Home() {
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-x-2 sm:mt-12">
-                <a
-                  href="#about"
-                  className="rounded-md border border-black bg-white px-7 py-5 text-center text-base font-bold leading-none text-black transition-all hover:-translate-y-[5px]"
-                >
+                <a href="#about" className={blackButton}>
                   Get involved
                 </a>
-                <a
-                  href="#work"
-                  className="rounded-md border border-white/20 bg-[#080808] px-7 py-5 text-center text-base font-bold leading-none text-white transition-all hover:-translate-y-[5px]"
-                >
+                <a href="#work" className={whiteButton}>
                   Work with us
                 </a>
               </div>
@@ -95,11 +89,16 @@ function Home() {
                   The problem we solve
                 </h3>
                 <div className="text-white transition-transform">
-                  {problemSectionOpen ? (
-                    <GoChevronUp className="h-8 w-8" />
-                  ) : (
-                    <GoChevronDown className="h-8 w-8" />
-                  )}
+                  <Image
+                    src="/assets/arrow-open.svg"
+                    alt="Arrow open"
+                    width={24}
+                    height={24}
+                    className={clsx(
+                      "transition-transform duration-300 ease-in-out",
+                      problemSectionOpen ? "rotate-[-90deg]" : ""
+                    )}
+                  />
                 </div>
               </div>
 
@@ -126,11 +125,16 @@ function Home() {
                   Our solution – Near Intents
                 </h3>
                 <div className="text-white transition-transform">
-                  {solutionSectionOpen ? (
-                    <GoChevronUp className="h-8 w-8" />
-                  ) : (
-                    <GoChevronDown className="h-8 w-8" />
-                  )}
+                  <Image
+                    src="/assets/arrow-open.svg"
+                    alt="Arrow open"
+                    width={24}
+                    height={24}
+                    className={clsx(
+                      "transition-transform duration-300 ease-in-out",
+                      solutionSectionOpen ? "rotate-[-90deg]" : ""
+                    )}
+                  />
                 </div>
               </div>
 
@@ -162,10 +166,12 @@ function Home() {
                 </div>
 
                 <div
-                  className={clsx(
-                    "mt-12 grid grid-cols-1 gap-[1px] rounded-xl md:grid-cols-3",
-                    gradient
-                  )}
+                  className={
+                    "mt-12 grid grid-cols-1 gap-[1px] rounded-xl md:grid-cols-3"
+                  }
+                  style={{
+                    background: gradient,
+                  }}
                 >
                   <div className="m-[1px] rounded-r-none rounded-tl-xl rounded-tr-xl bg-[#080808] p-8 md:rounded-l-xl md:rounded-tr-none">
                     <div className="mb-6">
@@ -227,10 +233,134 @@ function Home() {
                 </div>
               </div>
             </div>
+
+            <div className="w-full rounded-2xl bg-[#080808] text-white">
+              <div className="grid grid-cols-1 gap-6 p-8 md:grid-cols-2 md:p-12">
+                <div className="flex flex-col items-start justify-center gap-6">
+                  <GradientButton>Near Intents</GradientButton>
+                  <h1 className="text-3xl font-bold">
+                    A new type of transaction
+                  </h1>
+                  <p className="text-base text-gray-400">
+                    Allowing information, requests, assets and actions to
+                    exchanges between AI agents, services and end users.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-x-2">
+                    <a
+                      href="http://near-intents.org"
+                      className={blackButton}
+                      target="_blank"
+                    >
+                      Go to NEAR Intents
+                    </a>
+                    <a
+                      href="http://near-intents.org"
+                      className={whiteButton}
+                      target="_blank"
+                    >
+                      Find out more
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <div className="w-[500px] overflow-hidden rounded-2xl">
+                    <Image
+                      src="/assets/near-intents.png"
+                      alt="Near Intents"
+                      width={500}
+                      height={500}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section id="careers">
+        <Container className="flex flex-col items-center justify-center">
+          <div className="grid grid-cols-1 gap-6 p-8 md:grid-cols-3 md:p-12">
+            <div className="flex w-full flex-col items-start justify-center gap-6 p-8 md:p-12">
+              <div className="w-full">
+                <GradientButton>Careers</GradientButton>
+              </div>
+              <h1 className="text-3xl font-bold text-white">Work with us</h1>
+              <p className="text-base text-white">
+                We’re growing fast and continuously looking for talented and
+                passionate people to join our team. Please have a look at our
+                open positions.
+              </p>
+            </div>
+            <div className="col-span-2 grid grid-cols-1 gap-4 overflow-hidden rounded-2xl">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="bg-white">
+                  <PositionCard
+                    team="Team 1"
+                    title="Position 1"
+                    link="https://www.google.com"
+                  />
+                </div>
+                <div className="bg-white">
+                  <PositionCard
+                    team="Team 2"
+                    title="Position 2"
+                    link="https://www.google.com"
+                  />
+                </div>
+                <div className="bg-white">
+                  <PositionCard
+                    team="Team 3"
+                    title="Position 3"
+                    link="https://www.google.com"
+                  />
+                </div>
+                <div className="bg-white">
+                  <PositionCard
+                    team="Team 4"
+                    title="Position 4"
+                    link="https://www.google.com"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
     </>
+  )
+}
+
+type PositionProps = {
+  team: string
+  title: string
+  link: string
+}
+const PositionCard = ({ team, title, link }: PositionProps) => {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      className="group flex h-full flex-col items-start justify-between gap-1 pb-4"
+    >
+      <div className="self-end p-6 transition-all duration-300 ease-in-out group-hover:translate-x-2">
+        <Image
+          src="/assets/arrow-open.svg"
+          alt="Arrow Open"
+          width={16}
+          height={16}
+          style={{
+            transform: "rotate(-45deg)",
+            filter: "invert(1)",
+          }}
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <span className="px-6 text-sm text-gray-800">{team}</span>
+        <span className="px-6 text-xl font-bold">{title}</span>
+      </div>
+    </a>
   )
 }
 

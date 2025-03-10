@@ -40,18 +40,7 @@ const config: DefaultSeoProps = {
     },
     {
       rel: "icon",
-      type: "image/png",
-      sizes: "16x16",
-      href: "/favicon-16x16.png",
-    },
-    {
-      rel: "icon",
       href: "/favicon.ico",
-    },
-    {
-      rel: "mask-icon",
-      href: "/safari-pinned-tab.svg",
-      color: "#0f172a",
     },
     {
       rel: "manifest",
