@@ -1,5 +1,4 @@
 import Container from "@/components/Container"
-import { getPrivacyPolicyPage } from "@/utils/cms"
 import { NextSeo } from "next-seo"
 
 const PrivacyPolicyPage = ({ title, content }: any) => {
@@ -22,7 +21,12 @@ const PrivacyPolicyPage = ({ title, content }: any) => {
 export default PrivacyPolicyPage
 
 export async function getStaticProps() {
-  const data = await getPrivacyPolicyPage()
+  // const data = await getPrivacyPolicyPage()
+
+  const data = {
+    title: "Privacy Policy",
+    content: "This is a test content",
+  }
 
   return {
     props: {

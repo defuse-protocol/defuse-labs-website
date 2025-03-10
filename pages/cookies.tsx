@@ -1,5 +1,4 @@
 import Container from "@/components/Container"
-import { getCookiePolicyPage } from "@/utils/cms"
 import { NextSeo } from "next-seo"
 
 const CookiePolicyPage = ({ title, content }: any) => {
@@ -22,7 +21,11 @@ const CookiePolicyPage = ({ title, content }: any) => {
 export default CookiePolicyPage
 
 export async function getStaticProps() {
-  const data = await getCookiePolicyPage()
+  // const data = await getCookiePolicyPage()
+  const data = {
+    title: "Cookie Policy",
+    content: "This is a test content",
+  }
 
   return {
     props: {
