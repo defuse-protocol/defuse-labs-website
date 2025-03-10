@@ -281,13 +281,13 @@ function Home() {
 
       <section id="careers">
         <Container className="flex flex-col items-center justify-center">
-          <div className="grid grid-cols-1 gap-6 p-8 md:grid-cols-3 md:p-12">
-            <div className="flex w-full flex-col items-start justify-center gap-6 p-8 md:p-12">
+          <div className="grid grid-cols-1 gap-6 px-8 py-8 md:grid-cols-3 md:px-12 md:py-16">
+            <div className="flex w-full flex-col items-start justify-center gap-6 pr-8">
               <div className="w-full">
                 <GradientButton>Careers</GradientButton>
               </div>
               <h1 className="text-3xl font-bold text-white">Work with us</h1>
-              <p className="text-base text-white">
+              <p className="text-sm text-white/80">
                 We’re growing fast and continuously looking for talented and
                 passionate people to join our team. Please have a look at our
                 open positions.
