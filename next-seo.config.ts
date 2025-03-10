@@ -6,24 +6,24 @@ const config: DefaultSeoProps = {
   description:
     "Defuse Labs develops NEAR Intents to enable seamless cross-chain interactions in an automated world — connecting AI, services, and financial applications.",
   openGraph: {
-    url: "https://defuselabs.xyz",
+    url: "https://defuselabs.org",
     title: "Powering the future of AI transactions | Defuse Labs",
     description:
       "Defuse Labs develops NEAR Intents to enable seamless cross-chain interactions in an automated world — connecting AI, services, and financial applications.",
     images: [
       {
-        url: "https://nearone.org/assets/og.png",
+        url: "https://defuselabs.org/assets/og.png",
         width: 1200,
         height: 630,
-        alt: "Elevating Protocol | Near One",
+        alt: "Powering the future of AI transactions | Defuse Labs",
         type: "image/png",
       },
     ],
-    siteName: "Near One",
+    siteName: "Defuse Labs",
   },
   twitter: {
-    handle: "@NEARProtocol",
-    site: "@site",
+    handle: "@DefuseLabs",
+    site: "@DefuseLabs",
     cardType: "summary_large_image",
   },
   additionalLinkTags: [
