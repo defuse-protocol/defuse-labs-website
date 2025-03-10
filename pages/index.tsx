@@ -1,18 +1,12 @@
 import Container from "@/components/Container"
 import Image from "next/image"
 import clsx from "clsx"
-import {
-  GoArrowRight,
-  GoArrowUpRight,
-  GoChevronDown,
-  GoChevronUp,
-} from "react-icons/go"
-import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
 import { useState } from "react"
 import { blackButton, gradient, whiteButton } from "@/utils/constants"
 import { GradientButton } from "@/components/gradient-button"
+import { getOpenPositions } from "@/utils/cms"
 
-function Home() {
+function Home({ openPositions }: { openPositions: any[] }) {
   const [problemSectionOpen, setProblemSectionOpen] = useState(true)
   const [solutionSectionOpen, setSolutionSectionOpen] = useState(true)
 
@@ -296,34 +290,15 @@ function Home() {
             </div>
             <div className="col-span-2 grid grid-cols-1 gap-4 overflow-hidden rounded-2xl">
               <div className="grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-4">
-                <div className="bg-white">
-                  <PositionCard
-                    team="Team 1"
-                    title="Position 1"
-                    link="https://www.google.com"
-                  />
-                </div>
-                <div className="bg-white">
-                  <PositionCard
-                    team="Team 2"
-                    title="Position 2"
-                    link="https://www.google.com"
-                  />
-                </div>
-                <div className="bg-white">
-                  <PositionCard
-                    team="Team 3"
-                    title="Position 3"
-                    link="https://www.google.com"
-                  />
-                </div>
-                <div className="bg-white">
-                  <PositionCard
-                    team="Team 4"
-                    title="Position 4"
-                    link="https://www.google.com"
-                  />
-                </div>
+                {openPositions.map((position) => (
+                  <div className="bg-white" key={position.id}>
+                    <PositionCard
+                      team={position.team}
+                      title={position.title}
+                      link={position.link}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -366,10 +341,10 @@ const PositionCard = ({ team, title, link }: PositionProps) => {
 }
 
 export async function getStaticProps() {
-  // const employees = await getEmployees()
+  const openPositions = await getOpenPositions()
 
   return {
-    props: { employees: [], openPositions: [] },
+    props: { employees: [], openPositions },
     revalidate: 300,
   }
 }

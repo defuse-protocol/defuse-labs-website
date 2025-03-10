@@ -2,7 +2,6 @@ import Container from "./Container"
 import Link from "next/link"
 import { ReactNode, useEffect, useState } from "react"
 import clsx from "clsx"
-import { FaLinkedin, FaEnvelope } from "react-icons/fa6"
 import Image from "next/image"
 import { Dialog, DialogPanel } from "@headlessui/react"
 import { HiMiniBars3, HiMiniXMark } from "react-icons/hi2"
@@ -12,22 +11,22 @@ const navigation = {
   main: [
     {
       name: "About us",
-      href: "#about",
+      href: "/#about",
     },
     {
       name: "Careers",
-      href: "#careers",
+      href: "/#careers",
     },
     {
       name: "Get involved",
-      href: "#get-involved",
+      href: "/#get-involved",
       button: true,
     },
   ],
   footer: [
     {
       name: "Get involved",
-      href: "#get-involved",
+      href: "/#get-involved",
     },
     {
       name: "Privacy Policy",

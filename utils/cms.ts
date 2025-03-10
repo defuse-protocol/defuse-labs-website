@@ -43,49 +43,59 @@ const fetchAPI = async <T extends GraphQlData>(
   return json.data
 }
 
-// export async function getOpenPositions() {
-//   const data = await fetchAPI(
-//     `
-//     query getOpenPositions {
-//       allOpenPositions {
-//         id
-//         title
-//         team
-//         link
-//       }
-//     }
-//   `
-//   )
+export async function getOpenPositions() {
+  const data = await fetchAPI(
+    `
+    query getPositions {
+      allPositions {
+        id
+        team
+        title
+        link
+        _status
+        _firstPublishedAt
+      }
 
-//   return data?.allOpenPositions || []
-// }
+      _allPositionsMeta {
+        count
+      }
+    }
+  `
+  )
 
-// export async function getPrivacyPolicyPage() {
-//   const data = await fetchAPI(
-//     `
-//     query getPrivacyPolicyPage {
-//       privacyPolicy {
-//         title
-//         content(markdown: true)
-//       }
-//     }
-//   `
-//   )
+  return data?.allPositions || []
+}
 
-//   return data?.privacyPolicy
-// }
+export async function getPrivacyPolicyPage() {
+  const data = await fetchAPI(
+    `
+    query getPrivacyPolicy {
+      privacyPolicy {
+        id
+        content(markdown: true)
+        _status
+        _firstPublishedAt
+      }
+    }
+  `
+  )
 
-// export async function getCookiePolicyPage() {
-//   const data = await fetchAPI(
-//     `
-//     query getCookiePolicyPage {
-//       cookiePolicy {
-//         title
-//         content(markdown: true)
-//       }
-//     }
-//   `
-//   )
+  return data?.privacyPolicy
+}
 
-//   return data?.cookiePolicy
-// }
+export async function getCookiePolicyPage() {
+  const data = await fetchAPI(
+    `
+    query getCookiePolicy {
+      cookiePolicy {
+        id
+        content(markdown: true)
+        _status
+        _firstPublishedAt
+      }
+    }
+  `
+  )
+
+  return data?.cookiePolicy
+}

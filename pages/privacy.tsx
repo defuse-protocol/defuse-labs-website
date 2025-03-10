@@ -1,13 +1,14 @@
 import Container from "@/components/Container"
+import { getPrivacyPolicyPage } from "@/utils/cms"
 import { NextSeo } from "next-seo"
 
-const PrivacyPolicyPage = ({ title, content }: any) => {
+const PrivacyPolicyPage = ({ content }: any) => {
   return (
     <>
-      <NextSeo title={title} />
-      <Container>
+      <NextSeo title="Privacy Policy" />
+      <Container className="bg-white pt-16">
         <div className="prose mx-auto py-12 sm:py-16 md:py-24">
-          <h1>{title}</h1>
+          <h1>Privacy Policy</h1>
           <div
             className="break-words"
             dangerouslySetInnerHTML={{ __html: content }}
@@ -21,16 +22,10 @@ const PrivacyPolicyPage = ({ title, content }: any) => {
 export default PrivacyPolicyPage
 
 export async function getStaticProps() {
-  // const data = await getPrivacyPolicyPage()
-
-  const data = {
-    title: "Privacy Policy",
-    content: "This is a test content",
-  }
+  const data = await getPrivacyPolicyPage()
 
   return {
     props: {
-      title: data.title,
       content: data.content,
     },
     revalidate: 300,
