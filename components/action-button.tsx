@@ -5,20 +5,26 @@ const ActionButton = ({
   variant,
   href,
   children,
+  className,
+  onClick,
 }: {
   variant?: "white" | "black" | "transparent"
   href?: string
   children: React.ReactNode
+  className?: string
+  onClick?: () => void
 }) => {
-  const onClick = () => {
-    if (href) {
-      if (href.startsWith("http")) {
-        window.open(href)
-      } else {
-        location.href = href
+  const localOnClick =
+    onClick ||
+    (() => {
+      if (href) {
+        if (href.startsWith("http")) {
+          window.open(href)
+        } else {
+          location.href = href
+        }
       }
-    }
-  }
+    })
 
   return (
     <button
@@ -26,9 +32,10 @@ const ActionButton = ({
         variant === "white" && whiteButton,
         variant === "black" && blackButton,
         variant === "transparent" && transparentButton,
-        !variant && blackButton
+        !variant && blackButton,
+        className
       )}
-      onClick={onClick}
+      onClick={localOnClick}
     >
       {children}
     </button>
