@@ -243,11 +243,11 @@ function Home({ openPositions }: { openPositions: any[] }) {
                   <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
                     <ActionButton
                       variant="white"
-                      href="http://near-intents.org"
+                      href="https://near-intents.org"
                     >
                       Go toa NEAR Intents
                     </ActionButton>
-                    <ActionButton href="http://near-intents.org">
+                    <ActionButton href="https://near.org/intents">
                       Find out more
                     </ActionButton>
                   </div>
