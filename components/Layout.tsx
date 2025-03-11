@@ -41,7 +41,7 @@ const navigation = {
   social: [
     {
       name: "X",
-      href: "https://www.x.com/defuselabs",
+      href: "https://x.com/DefuseProtocol",
       icon: <Image src="/assets/x.svg" alt="X" width={24} height={24} />,
     },
   ],

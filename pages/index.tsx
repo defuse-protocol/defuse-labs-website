@@ -38,7 +38,7 @@ function Home({ openPositions }: { openPositions: any[] }) {
               </div>
               <div className="mt-8 grid grid-cols-2 gap-x-2 sm:mt-12">
                 <ActionButton variant="white" href="#about">
-                  Get involved
+                  Contact us
                 </ActionButton>
                 <ActionButton href="#careers">Work with us</ActionButton>
               </div>
@@ -283,7 +283,7 @@ function Home({ openPositions }: { openPositions: any[] }) {
               </p>
             </div>
             <div className="col-span-2 grid grid-cols-1 gap-4 overflow-hidden rounded-2xl">
-              <div className="grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-4">
+              <div className="grid grid-cols-2 gap-2">
                 {openPositions.map((position) => (
                   <div className="bg-white" key={position.id}>
                     <PositionCard
@@ -312,9 +312,9 @@ const PositionCard = ({ team, title, link }: PositionProps) => {
     <a
       href={link}
       target="_blank"
-      className="group flex h-full flex-col items-start justify-between gap-1 pb-4"
+      className="group flex h-full flex-col items-start justify-between gap-1"
     >
-      <div className="self-end p-6 transition-all duration-300 ease-in-out group-hover:translate-x-2">
+      <div className="self-end p-6 pb-0 transition-all duration-300 ease-in-out group-hover:translate-x-2">
         <Image
           src="/assets/arrow-open.svg"
           alt="Arrow Open"
@@ -326,9 +326,9 @@ const PositionCard = ({ team, title, link }: PositionProps) => {
           }}
         />
       </div>
-      <div className="flex flex-col gap-1">
-        <span className="px-6 text-xs text-gray-800 md:text-sm">{team}</span>
-        <span className="px-6 text-base font-bold md:text-xl">{title}</span>
+      <div className="flex flex-col gap-1 p-6">
+        <span className="text-xs text-gray-800 md:text-base">{team}</span>
+        <span className="text-base font-bold md:text-xl">{title}</span>
       </div>
     </a>
   )

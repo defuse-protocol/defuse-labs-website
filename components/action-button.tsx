@@ -6,7 +6,7 @@ const ActionButton = ({
   href,
   children,
 }: {
-  variant?: "white" | "transparent"
+  variant?: "white" | "black" | "transparent"
   href?: string
   children: React.ReactNode
 }) => {
@@ -23,8 +23,10 @@ const ActionButton = ({
   return (
     <button
       className={clsx(
-        variant !== "white" ? whiteButton : blackButton,
-        variant === "transparent" && transparentButton
+        variant === "white" && whiteButton,
+        variant === "black" && blackButton,
+        variant === "transparent" && transparentButton,
+        !variant && blackButton
       )}
       onClick={onClick}
     >
