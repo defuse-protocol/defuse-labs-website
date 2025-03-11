@@ -55,7 +55,7 @@ export const ContactModal = () => {
             >
               <HiMiniXMark className="h-5 w-5" />
             </button>
-            <h2 className="text-3xl font-bold">Get involved</h2>
+            <h2 className="text-3xl font-bold">Contact us</h2>
             <p className="text-center text-sm text-[##080808]">
               Want to keep up with our latest research and updates? Interested
               in collaborating with us? Simply share your details, and
@@ -80,9 +80,7 @@ export const ContactModal = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               {error && <p className="my-3 text-red-500">{error}</p>}
-              <ActionButton className="mt-2 flex self-start">
-                Be part of the journey
-              </ActionButton>
+              <ActionButton className="mt-2 flex self-start">Send</ActionButton>
             </form>
           </div>
         </div>
