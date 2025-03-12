@@ -6,7 +6,7 @@ import { HiMiniXMark } from "react-icons/hi2"
 import toast from "react-hot-toast"
 
 interface ContactModalProps {
-  buttonVariant: "white" | "black" | "transparent"
+  buttonVariant?: "white" | "black" | "transparent"
 }
 
 export const ContactModal = ({ buttonVariant }: ContactModalProps) => {
