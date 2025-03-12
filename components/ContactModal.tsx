@@ -3,42 +3,72 @@
 import { useState } from "react"
 import ActionButton from "./action-button"
 import { HiMiniXMark } from "react-icons/hi2"
-import { sendContactEmail } from "@/actions/send-contact"
 import toast from "react-hot-toast"
 
-export const ContactModal = () => {
+interface ContactModalProps {
+  buttonVariant: "white" | "black" | "transparent"
+}
+
+export const ContactModal = ({ buttonVariant }: ContactModalProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
+    setIsSubmitting(true)
+
+    // Form validation
     if (!name || !email) {
       setError("Please enter your name and email.")
-      return
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      setError("Please enter a valid email address.")
+      setIsSubmitting(false)
       return
     }
 
-    const result = await sendContactEmail(name, email)
-    if (result.success) {
-      toast.success(
-        "Email sent successfully. We will be in touch shortly. Thank you!"
-      )
-      setIsOpen(false)
-    } else {
-      setError("Failed to send email.")
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.")
+      setIsSubmitting(false)
+      return
+    }
+
+    try {
+      // Call the API endpoint
+      const response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        toast.success("Your message has been sent successfully!")
+        setName("")
+        setEmail("")
+        setIsOpen(false)
+      } else {
+        setError(data.error || "Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error sending contact:", error)
+      setError("An error occurred. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
   return (
     <>
-      <ActionButton variant="transparent" onClick={() => setIsOpen(true)}>
+      <ActionButton
+        variant={buttonVariant || "transparent"}
+        onClick={() => setIsOpen(true)}
+      >
         Contact us
       </ActionButton>
       {isOpen && (
@@ -71,6 +101,7 @@ export const ContactModal = () => {
                 className="rounded-lg border border-[#08080820] p-4"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                disabled={isSubmitting}
               />
               <input
                 type="email"
@@ -78,9 +109,15 @@ export const ContactModal = () => {
                 className="rounded-lg border border-[#08080820] p-4"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubmitting}
               />
               {error && <p className="my-3 text-red-500">{error}</p>}
-              <ActionButton className="mt-2 flex self-start">Send</ActionButton>
+              <ActionButton
+                className={`mt-2 flex self-start ${isSubmitting ? "cursor-not-allowed opacity-70" : ""}`}
+                onClick={isSubmitting ? () => {} : undefined}
+              >
+                {isSubmitting ? "Sending..." : "Send"}
+              </ActionButton>
             </form>
           </div>
         </div>

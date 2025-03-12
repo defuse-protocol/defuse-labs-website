@@ -8,6 +8,7 @@ import { HiMiniBars3, HiMiniXMark } from "react-icons/hi2"
 import { useRouter } from "next/router"
 import ActionButton from "./action-button"
 import { ContactModal } from "./ContactModal"
+import { Toaster } from "react-hot-toast"
 
 const navigation = {
   main: [
@@ -190,6 +191,7 @@ const Layout = ({
           </Container>
         </footer>
       </div>
+      <Toaster />
     </>
   )
 }

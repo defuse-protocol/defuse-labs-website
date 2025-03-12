@@ -2,10 +2,11 @@ import Container from "@/components/Container"
 import Image from "next/image"
 import clsx from "clsx"
 import { useState } from "react"
-import { blackButton, gradient, whiteButton } from "@/utils/constants"
+import { gradient } from "@/utils/constants"
 import { GradientButton } from "@/components/gradient-button"
 import { getOpenPositions } from "@/utils/cms"
 import ActionButton from "@/components/action-button"
+import { ContactModal } from "@/components/ContactModal"
 
 function Home({ openPositions }: { openPositions: any[] }) {
   const [problemSectionOpen, setProblemSectionOpen] = useState(true)
@@ -37,9 +38,7 @@ function Home({ openPositions }: { openPositions: any[] }) {
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-x-2 sm:mt-12">
-                <ActionButton variant="white" href="#about">
-                  Contact us
-                </ActionButton>
+                <ContactModal buttonVariant="white" />
                 <ActionButton href="#careers">Work with us</ActionButton>
               </div>
             </div>
@@ -245,7 +244,7 @@ function Home({ openPositions }: { openPositions: any[] }) {
                       variant="white"
                       href="https://near-intents.org"
                     >
-                      Go toa NEAR Intents
+                      Go to NEAR Intents
                     </ActionButton>
                     <ActionButton href="https://near.org/intents">
                       Find out more
