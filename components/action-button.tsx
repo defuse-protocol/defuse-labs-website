@@ -33,7 +33,8 @@ const ActionButton = ({
         variant === "black" && blackButton,
         variant === "transparent" && transparentButton,
         !variant && blackButton,
-        className
+        className,
+        "transition-all hover:-translate-y-[5px]"
       )}
       onClick={localOnClick}
     >
