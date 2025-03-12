@@ -1,4 +1,5 @@
-const EMAIL_FROM = "no-reply@defuselabs.org"
+// const EMAIL_FROM = "no-reply@defuselabs.org"
+const EMAIL_FROM = "console@auroracloud.dev"
 
 export const sendEmail = async (body: {
   To: string
