@@ -3,7 +3,7 @@ import { sendEmail } from "@/utils/email"
 export async function sendContactEmail(name: string, email: string) {
   try {
     await sendEmail({
-      To: "rafael.dalpra@aurora.dev",
+      To: "info@defuse.org",
       Subject: "New Contact Request from Defuse Labs Website",
       HtmlBody: `
         <h2>New Contact Request</h2>

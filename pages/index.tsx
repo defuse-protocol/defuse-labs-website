@@ -7,8 +7,9 @@ import { GradientButton } from "@/components/gradient-button"
 import { getOpenPositions } from "@/utils/cms"
 import ActionButton from "@/components/action-button"
 import { ContactModal } from "@/components/ContactModal"
+import { getJobs } from "@/utils/greenhouse"
 
-function Home({ openPositions }: { openPositions: any[] }) {
+function Home({ jobs }: { jobs: any[] }) {
   const [problemSectionOpen, setProblemSectionOpen] = useState(true)
   const [solutionSectionOpen, setSolutionSectionOpen] = useState(true)
 
@@ -282,17 +283,25 @@ function Home({ openPositions }: { openPositions: any[] }) {
               </p>
             </div>
             <div className="col-span-2 grid grid-cols-1 gap-4 overflow-hidden rounded-2xl">
-              <div className="grid grid-cols-2 gap-2">
-                {openPositions.map((position) => (
-                  <div className="bg-white" key={position.id}>
-                    <PositionCard
-                      team={position.team}
-                      title={position.title}
-                      link={position.link}
-                    />
-                  </div>
-                ))}
-              </div>
+              {jobs && jobs.length > 0 ? (
+                <div className="grid grid-cols-2 gap-2">
+                  {jobs.map((job) => (
+                    <div className="bg-white" key={job.id}>
+                      <PositionCard
+                        location={job.location.name}
+                        title={job.title}
+                        link={job.absolute_url}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex h-full items-center justify-center">
+                  <p className="rounded-md bg-white p-4 text-sm text-black">
+                    No open positions at the moment. :(
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </Container>
@@ -302,11 +311,11 @@ function Home({ openPositions }: { openPositions: any[] }) {
 }
 
 type PositionProps = {
-  team: string
+  location: string
   title: string
   link: string
 }
-const PositionCard = ({ team, title, link }: PositionProps) => {
+const PositionCard = ({ location, title, link }: PositionProps) => {
   return (
     <a
       href={link}
@@ -326,7 +335,7 @@ const PositionCard = ({ team, title, link }: PositionProps) => {
         />
       </div>
       <div className="flex flex-col gap-1 p-6">
-        <span className="text-xs text-gray-800 md:text-base">{team}</span>
+        <span className="text-xs text-gray-800 md:text-base">{location}</span>
         <span className="text-base font-bold md:text-xl">{title}</span>
       </div>
     </a>
@@ -335,9 +344,12 @@ const PositionCard = ({ team, title, link }: PositionProps) => {
 
 export async function getStaticProps() {
   const openPositions = await getOpenPositions()
+  const jobs = await getJobs()
+
+  console.log("Jobs", jobs)
 
   return {
-    props: { employees: [], openPositions },
+    props: { employees: [], jobs },
     revalidate: 300,
   }
 }
