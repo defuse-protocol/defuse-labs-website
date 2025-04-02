@@ -143,7 +143,7 @@ const Layout = ({
         </Container>
       </header>
       <div
-        className="relative overflow-hidden bg-[url('/assets/background-cubes.png')] bg-center bg-no-repeat"
+        className="relative overflow-hidden bg-[url('/assets/background-cubes.webp')] bg-center bg-no-repeat"
         style={{
           backgroundSize: "contain",
           backgroundPosition: "0 5%",
