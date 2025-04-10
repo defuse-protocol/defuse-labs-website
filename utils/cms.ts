@@ -99,3 +99,20 @@ export async function getCookiePolicyPage() {
 
   return data?.cookiePolicy
 }
+
+export async function getCandidateNoticePage() {
+  const data = await fetchAPI(
+    `
+    query getCandidateNoticePage {
+      candidateNotice {
+        id
+        content(markdown: true)
+        _status
+        _firstPublishedAt
+      }
+    }
+  `
+  )
+
+  return data?.candidateNotice
+}
